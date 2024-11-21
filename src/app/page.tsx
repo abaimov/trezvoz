@@ -6,7 +6,6 @@ import img2 from '../assets/tild6264-6238-4662-b631-383332663632__91337ed135a267
 import {FaBrain, FaBusinessTime, FaCompass, FaRocket, FaSmileBeam, FaThumbsUp} from "react-icons/fa";
 
 export default function Home() {
-
     return (
         <main>
             <div className={styles.container}>
@@ -86,7 +85,7 @@ export default function Home() {
                         <FaCompass className={'text-4xl w-full'} style={{fill: "url(#gradient)"}}/>
                         <div className={'text-center font-bold mt-3'}>ЗНАНИЕ ГОРОДА</div>
                         <p className={'text-center'}>Знаем город без использования систем навигации и путей оптимизации
-                            маршрута!!</p>
+                            маршрута!</p>
                     </div>
                     <div className={'bg-gray-200 p-2 rounded-md sm:w-[32.3%]'}>
                         <FaSmileBeam className={'text-4xl w-full'} style={{fill: "url(#gradient)"}}/>
