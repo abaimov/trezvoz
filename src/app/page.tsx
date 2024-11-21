@@ -14,11 +14,11 @@ export default function Home() {
                     <div>
                         <h1 className={'font-bold text-5xl text-white'}>Трезвый водитель <br/>в минске</h1>
                         <div className={'text-2xl font-bold my-4 text-orange-500 p-0'}><a
-                            className={'border-b-[3px] border-b-orange-500'} href="tel:+375333854577">+375 (33)
-                            385-45-77</a></div>
+                            className={'border-b-[3px] border-b-orange-500'} href="tel:+375292666811">+375 (29)
+                            2 666 811</a></div>
                         <button
                             className={'w-full bg-green-700 max-w-[250px] py-4 rounded-md shadow-md font-bold tracking-wider'}>
-                            <a href="tel:+375333854577">Позвонить</a></button>
+                            <a href="tel:+375292666811">Позвонить</a></button>
                         <h2 className={'text-orange-500 mt-8 text-lg'}>Занимаемся полезным делом уже более <span
                             className={'bg-orange-500 text-white rounded-md p-1 font-bold'}>10 лет</span></h2>
                     </div>
