@@ -12,12 +12,15 @@ export default function Home() {
                 <div className={styles.inner}>
                     <div>
                         <h1 className={'font-bold text-5xl text-white'}>Трезвый водитель <br/>в минске</h1>
-                        <div className={'text-2xl font-bold my-4 text-orange-500 p-0'}><a
-                            className={'border-b-[3px] border-b-orange-500'} href="tel:+375292666811">+375 (29)
-                            2 666 811</a></div>
+                        <div className={'text-2xl font-bold my-4 text-orange-500 p-0'}>
+                            <a
+                                className={'border-b-[3px] border-b-orange-500'} href="tel:+375333004799">+375 (33) 300
+                                47 99
+                            </a>
+                        </div>
                         <button
                             className={'w-full bg-green-700 max-w-[250px] py-4 rounded-md shadow-md font-bold tracking-wider'}>
-                            <a href="tel:+375292666811">Позвонить</a></button>
+                            <a href="tel:+375333004799">Позвонить</a></button>
                         <h2 className={'text-orange-500 mt-8 text-lg'}>Занимаемся полезным делом уже более <span
                             className={'bg-orange-500 text-white rounded-md p-1 font-bold'}>10 лет</span></h2>
                     </div>
@@ -25,7 +28,7 @@ export default function Home() {
                 </div>
             </div>
             <div className={'max-w-[1440px] m-auto bg-gray-100 px-2'}>
-                <div><h2 className={'text-5xl font-bold text-center pt-5'}>Услуги</h2></div>
+                <div><h2 className={'text-5xl font-bold text-center pt-5'} id={'services'}>Услуги</h2></div>
                 <div className={'w-full flex flex-col justify-center items-start mt-5 sm:flex-row sm:gap-4'}>
                     <div className={'min-w-[150px] w-full flex justify-end items-center sm:justify-center'}>
                         <Image src={img}
@@ -55,7 +58,7 @@ export default function Home() {
                 </div>
             </div>
             <div className={'max-w-[1440px] m-auto bg-gray-100 py-5'}>
-                <div><h2 className={'text-3xl font-bold text-center '}>Преимущества</h2></div>
+                <div><h2 className={'text-3xl font-bold text-center '} id={"success"}>Преимущества</h2></div>
                 <div className={'flex w-full flex-col mt-5 p-2 gap-2 sm:flex-row sm:flex-wrap'}>
                     <div className={'bg-gray-200 p-2 rounded-md sm:w-[32.3%]'}>
                         <svg width="0" height="0">

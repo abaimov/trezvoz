@@ -24,23 +24,24 @@ const StickyMenu = () => {
             className={clsx(`max-w-[1440px] m-auto w-full flex sticky top-0 z-50 h-[70px] justify-between items-center text-white bg-black/80 px-4`)}
         >
             <div className={'w-[170px] h-[50px]'}>
-                <Image className={'w-full'}
-                       src={img}
-                       alt=""/>
+                <a href="/"><Image className={'w-full'}
+                                   src={img}
+                                   alt=""/>
+                </a>
             </div>
             <ul className={`gap-3 justify-center items-center hidden sm:flex`}>
-                <Link href={'#price'}>
+                <Link href={'/#services'}>
                     <li>Цены</li>
                 </Link>
-                <Link href={'/'}>
+                <Link href={'/#success'}>
                     <li>Преимущества</li>
                 </Link>
-                <Link href={'/'}>
+                <Link href={'/#contacts'}>
                     <li>Контакты</li>
                 </Link>
             </ul>
-            <a href="tel:+375292666811"
-                  className={'flex sm:hidden bg-green-500 text-4xl cursor-pointer p-2 rounded-full'}><IoPhonePortraitOutline/></a>
+            <a href="tel:+375333004799"
+               className={'flex sm:hidden bg-green-500 text-4xl cursor-pointer p-2 rounded-full'}><IoPhonePortraitOutline/></a>
         </motion.div>
     );
 };

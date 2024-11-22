@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
-import { PT_Sans_Caption } from "next/font/google";
+import type {Metadata} from "next";
+import {PT_Sans_Caption} from "next/font/google";
 import "./globals.css";
 import StickyMenu from "@/app/Navbar";
 import ContainerProvider from "@/app/ContainerProvider";
-import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+import {GoogleTagManager, GoogleAnalytics} from '@next/third-parties/google';
 import Script from "next/script";
 
 // Подключение шрифта PT Sans Caption
-const sans_caption = PT_Sans_Caption({ subsets: ['cyrillic', 'latin'], weight: ['400', '700'] });
+const sans_caption = PT_Sans_Caption({subsets: ['cyrillic', 'latin'], weight: ['400', '700']});
 
 // Метаданные страницы
 export const metadata: Metadata = {
@@ -24,21 +24,21 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body className={sans_caption.className}>
-              <GoogleAnalytics gaId="8008797785" />
-            <GoogleTagManager gtmId={"G-D9NWJ5P27W"} />
-            <Script 
-               id="gtag-js" 
-               strategy="afterInteractive" 
-               src="https://www.googletagmanager.com/gtag/js?id=G-D9NWJ5P27W"
-            />
-            <Script strategy="afterInteractive">
-               {`
+        <GoogleAnalytics gaId="8008797785"/>
+        <GoogleTagManager gtmId={"G-D9NWJ5P27W"}/>
+        <Script
+            id="gtag-js"
+            strategy="afterInteractive"
+            src="https://www.googletagmanager.com/gtag/js?id=G-D9NWJ5P27W"
+        />
+        <Script strategy="afterInteractive">
+            {`
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
                   gtag('config', 'G-D9NWJ5P27W');
                `}
-            </Script>
+        </Script>
         {/* Яндекс Метрика */}
         <Script id="yandex-metrika" strategy="afterInteractive">
             {`(function(m,e,t,r,i,k,a){
@@ -60,7 +60,8 @@ export default function RootLayout({
         </Script>
         <noscript>
             <div>
-                <img src="https://mc.yandex.ru/watch/97120978" style={{ position: "absolute", left: "-9999px" }} alt="ya_metrika" />
+                <img src="https://mc.yandex.ru/watch/97120978" style={{position: "absolute", left: "-9999px"}}
+                     alt="ya_metrika"/>
             </div>
         </noscript>
 
@@ -81,8 +82,13 @@ export default function RootLayout({
 
         {/* Основной контент приложения */}
         <ContainerProvider>
-            <StickyMenu />
+            <StickyMenu/>
             {children}
+            <div className={'text-center bg-black h-[50px]'}>
+                <a href="/politica" className={'uppercase font-bold text-[12px] underline text-white'}>Политика
+                    конфиденциальности</a>
+                <p className={'uppercase font-bold text-[8px] text-white'}>УНП 190010170</p>
+            </div>
         </ContainerProvider>
         </body>
         </html>
