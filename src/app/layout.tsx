@@ -3,7 +3,7 @@ import {PT_Sans_Caption} from "next/font/google";
 import "./globals.css";
 import StickyMenu from "@/app/Navbar";
 import ContainerProvider from "@/app/ContainerProvider";
-import {GoogleTagManager, GoogleAnalytics} from '@next/third-parties/google';
+import {GoogleTagManager} from '@next/third-parties/google';
 import Script from "next/script";
 
 // Подключение шрифта PT Sans Caption
@@ -24,7 +24,20 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body className={sans_caption.className}>
-        <GoogleAnalytics gaId="8008797785"/>
+        {/* Google Analytics */}
+        <Script
+            id="google-analytics-js"
+            strategy="afterInteractive"
+            src="https://www.googletagmanager.com/gtag/js?id=8008797785"
+        />
+        <Script id="google-analytics-init" strategy="afterInteractive">
+            {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '8008797785');
+          `}
+        </Script>
         <GoogleTagManager gtmId={"G-D9NWJ5P27W"}/>
         <Script
             id="gtag-js"
