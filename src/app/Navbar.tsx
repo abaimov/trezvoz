@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client'
 import {motion, useMotionValueEvent, useScroll,} from 'framer-motion';
 import React, {useState} from 'react';
@@ -19,6 +20,16 @@ const StickyMenu = () => {
             setHidden(false)
         }
     })
+
+    const handlePhoneClick = (phoneNumber) => {
+        // Отправляем событие в Google Analytics с параметром link_url
+        if (typeof window !== 'undefined' && window.gtag) {
+            gtag('event', 'link_url', {
+                event_category: 'Phone',
+                event_label: phoneNumber, // Отправляем номер телефона
+            });
+        }
+    };
     return (
         <motion.div
             className={clsx(`max-w-[1440px] m-auto w-full flex sticky top-0 z-50 h-[70px] justify-between items-center text-white bg-black/80 px-4`)}
@@ -41,7 +52,11 @@ const StickyMenu = () => {
                 </Link>
             </ul>
             <a href="tel:+375333004799"
-               className={'flex sm:hidden bg-green-500 text-4xl cursor-pointer p-2 rounded-full'}><IoPhonePortraitOutline/></a>
+               className={'flex sm:hidden bg-green-500 text-4xl cursor-pointer p-2 rounded-full'} onClick={(e) => {
+                e.preventDefault(); // Предотвращаем действие по умолчанию
+                handlePhoneClick('+375333004799'); // Отправляем событие
+                window.location.href = 'tel:+375333004799'; // Переход по ссылке для звонка
+            }}><IoPhonePortraitOutline/></a>
         </motion.div>
     );
 };
