@@ -1,4 +1,5 @@
 // @ts-nocheck
+'use client'
 import styles from './styles/styles.module.css'
 import Form from "@/app/Form";
 import Image from 'next/image'
