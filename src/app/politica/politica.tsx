@@ -5,31 +5,31 @@ import Link from "next/link";
 
 
 export default function Politica() {
-    useEffect(() => {
-        // Функция для отслеживания кликов
-        const handleClick = (event: MouseEvent) => {
-            const target = event.target as HTMLElement;
-
-            // Пример отслеживания клика по ссылкам
-            if (target.tagName === "A") {
-                gtag("event", "click", {
-                    event_category: "outbound link",
-                    event_label: target.getAttribute("href"),
-                    value: 1,
-                });
-            }
-        };
-
-        // Добавляем обработчик кликов на весь документ
-        document.addEventListener("click", handleClick);
-
-        // Очистка обработчика при размонтировании компонента
-        return () => {
-            document.removeEventListener("click", handleClick);
-        };
-    }, []);
-
-    console.log(window.gtag);
+    // useEffect(() => {
+    //     // Функция для отслеживания кликов
+    //     const handleClick = (event: MouseEvent) => {
+    //         const target = event.target as HTMLElement;
+    //
+    //         // Пример отслеживания клика по ссылкам
+    //         if (target.tagName === "A") {
+    //             gtag("event", "click", {
+    //                 event_category: "outbound link",
+    //                 event_label: target.getAttribute("href"),
+    //                 value: 1,
+    //             });
+    //         }
+    //     };
+    //
+    //     // Добавляем обработчик кликов на весь документ
+    //     document.addEventListener("click", handleClick);
+    //
+    //     // Очистка обработчика при размонтировании компонента
+    //     return () => {
+    //         document.removeEventListener("click", handleClick);
+    //     };
+    // }, []);
+    //
+    // console.log(window.gtag);
     return (
         <div className="bg-gray-900 text-gray-200 font-sans antialiased p-8">
             {/* Заголовок страницы */}
