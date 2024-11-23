@@ -28,6 +28,8 @@ export default function Politica() {
             document.removeEventListener("click", handleClick);
         };
     }, []);
+
+    console.log(window.gtag);
     return (
         <div className="bg-gray-900 text-gray-200 font-sans antialiased p-8">
             {/* Заголовок страницы */}
