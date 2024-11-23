@@ -45,20 +45,19 @@ export default function RootLayout({
             </div>
         </ContainerProvider>
         </body>
-
-        {/*<Script*/}
-        {/*    id="gtag-js"*/}
-        {/*    strategy="afterInteractive"*/}
-        {/*    src="https://www.googletagmanager.com/gtag/js?id=G-D9NWJ5P27W"*/}
-        {/*/>*/}
-        {/*<Script strategy="afterInteractive">*/}
-        {/*    {`*/}
-        {/*          window.dataLayer = window.dataLayer || [];*/}
-        {/*          function gtag(){dataLayer.push(arguments);}*/}
-        {/*          gtag('js', new Date());*/}
-        {/*          gtag('config', 'G-D9NWJ5P27W');*/}
-        {/*       `}*/}
-        {/*</Script>*/}
+        <Script
+            id="gtag-js"
+            strategy="afterInteractive"
+            src="https://www.googletagmanager.com/gtag/js?id=G-D9NWJ5P27W"
+        />
+        <Script strategy="afterInteractive">
+            {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-D9NWJ5P27W');
+               `}
+        </Script>
         </html>
     );
 }
