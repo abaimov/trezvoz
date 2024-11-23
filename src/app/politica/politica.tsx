@@ -1,6 +1,7 @@
 // @ts-nocheck
 'use client'
 import {useEffect} from "react";
+import Link from "next/link";
 
 
 export default function Politica() {
@@ -129,9 +130,9 @@ export default function Politica() {
                 Пользователя.
                 Новая Политика конфиденциальности вступает в силу с момента её размещения на сайте данной Web-страницы.
             </p>
-            <a href="tel:+375333004799" className="text-yellow-400">
+            <Link href="tel:+375333004799" className="text-yellow-400">
                 +375 (33) 300 47 99
-            </a>
+            </Link>
         </div>
     );
 }
