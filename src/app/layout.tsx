@@ -5,6 +5,7 @@ import StickyMenu from "@/app/Navbar";
 import ContainerProvider from "@/app/ContainerProvider";
 import Script from "next/script";
 
+
 // Подключение шрифта PT Sans Caption
 const sans_caption = PT_Sans_Caption({
     subsets: ["cyrillic", "latin"],
@@ -26,25 +27,6 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <head>
-            <meta charSet="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link rel="icon" href="/favicon.ico" />
-
-            {/* Google Analytics */}
-            <Script
-                strategy="afterInteractive"
-                src="https://www.googletagmanager.com/gtag/js?id=G-D9NWJ5P27W"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-                {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-D9NWJ5P27W');
-          `}
-            </Script>
-        </head>
         <body className={sans_caption.className}>
         {/* Основной контент приложения */}
         <ContainerProvider>
@@ -63,6 +45,18 @@ export default function RootLayout({
             </div>
         </ContainerProvider>
         </body>
+        <Script
+            strategy="afterInteractive"
+            src="https://www.googletagmanager.com/gtag/js?id=G-D9NWJ5P27W"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+            {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-D9NWJ5P27W');
+          `}
+        </Script>
         </html>
     );
 }
