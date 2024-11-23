@@ -129,7 +129,7 @@ export default function Politica() {
                 Пользователя.
                 Новая Политика конфиденциальности вступает в силу с момента её размещения на сайте данной Web-страницы.
             </p>
-            <Link
+            <a
                 href="tel:+375333004799"
                 className="text-yellow-400"
                 onClick={(e) => {
@@ -142,7 +142,7 @@ export default function Politica() {
                 }}
             >
                 +375 (33) 300 47 99
-            </Link>
+            </a>
         </div>
     );
 }
