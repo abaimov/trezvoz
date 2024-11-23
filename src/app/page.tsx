@@ -6,17 +6,17 @@ import Image from 'next/image'
 import img from '../assets/tild6530-3133-4631-b461-386232653562__568x390_usluga-trezv.jpeg'
 import img2 from '../assets/tild6264-6238-4662-b631-383332663632__91337ed135a267a61d4f.jpeg'
 import {FaBrain, FaBusinessTime, FaCompass, FaRocket, FaSmileBeam, FaThumbsUp} from "react-icons/fa";
-
+import { sendGAEvent } from '@next/third-parties/google'
 export default function Home() {
-     const handlePhoneClick = (phoneNumber) => {
-        // Отправляем событие в Google Analytics с параметром link_url
-        if (typeof window !== 'undefined' && window.gtag) {
-            gtag('event', 'link_url', {
-                event_category: 'Phone',
-                event_label: phoneNumber, // Отправляем номер телефона
-            });
-        }
-    };
+    //  const handlePhoneClick = (phoneNumber) => {
+    //     // Отправляем событие в Google Analytics с параметром link_url
+    //     if (typeof window !== 'undefined' && window.gtag) {
+    //         gtag('event', 'click', {
+    //             event_category: 'link_url',
+    //             event_label: phoneNumber, // Отправляем номер телефона
+    //         });
+    //     }
+    // };
     return (
         <main>
             <div className={styles.container}>
@@ -26,21 +26,15 @@ export default function Home() {
                         <div className={'text-2xl font-bold my-4 text-orange-500 p-0'}>
                             <a
                                 className={'border-b-[3px] border-b-orange-500'} href="tel:+375333004799"
-                                onClick={(e) => {
-                                    e.preventDefault(); // Предотвращаем действие по умолчанию
-                                    handlePhoneClick('+375333004799'); // Отправляем событие
-                                    window.location.href = 'tel:+375333004799'; // Переход по ссылке для звонка
-                                }}>+375 (33) 300
+                                onClick={() => sendGAEvent({event: 'link_url', value: '+375333004799'})}>+375 (33) 300
                                 47 99
                             </a>
                         </div>
                         <button
                             className={'w-full bg-green-700 max-w-[250px] py-4 rounded-md shadow-md font-bold tracking-wider'}>
-                            <a href="tel:+375333004799" onClick={(e) => {
-                                e.preventDefault(); // Предотвращаем действие по умолчанию
-                                handlePhoneClick('+375333004799'); // Отправляем событие
-                                window.location.href = 'tel:+375333004799'; // Переход по ссылке для звонка
-                            }}>Позвонить</a></button>
+                            <a href="tel:+375333004799"
+                               onClick={() => sendGAEvent({event: 'link_url', value: '+375333004799'})}>Позвонить</a>
+                        </button>
                         <h2 className={'text-orange-500 mt-8 text-lg'}>Занимаемся полезным делом уже более <span
                             className={'bg-orange-500 text-white rounded-md p-1 font-bold'}>10 лет</span></h2>
                     </div>

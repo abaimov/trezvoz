@@ -1,7 +1,7 @@
 // @ts-nocheck
 'use client'
 import {useEffect} from "react";
-import Link from "next/link";
+import {sendGAEvent} from '@next/third-parties/google'
 
 export default function Politica() {
     useEffect(() => {
@@ -132,13 +132,7 @@ export default function Politica() {
             <a
                 href="tel:+375333004799"
                 className="text-yellow-400"
-                onClick={(e) => {
-                    gtag("event", "click", {
-                        event_category: "Phone Link",
-                        event_label: "link_url",
-                        value: 1,
-                    });
-                }}
+                onClick={() => sendGAEvent({event: 'link_url', value: '+375333004799'})}
             >
                 +375 (33) 300 47 99
             </a>
