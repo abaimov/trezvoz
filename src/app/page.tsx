@@ -1,3 +1,4 @@
+// @ts-nocheck
 import styles from './styles/styles.module.css'
 import Form from "@/app/Form";
 import Image from 'next/image'
@@ -14,13 +15,25 @@ export default function Home() {
                         <h1 className={'font-bold text-5xl text-white'}>Трезвый водитель <br/>в минске</h1>
                         <div className={'text-2xl font-bold my-4 text-orange-500 p-0'}>
                             <a
-                                className={'border-b-[3px] border-b-orange-500'} href="tel:+375333004799">+375 (33) 300
+                                className={'border-b-[3px] border-b-orange-500'} href="tel:+375333004799" onClick={(e) => {
+                                gtag("event", "click", {
+                                    event_category: "Phone Link",
+                                    event_label: "link_url",
+                                    value: 1,
+                                });
+                            }}>+375 (33) 300
                                 47 99
                             </a>
                         </div>
                         <button
                             className={'w-full bg-green-700 max-w-[250px] py-4 rounded-md shadow-md font-bold tracking-wider'}>
-                            <a href="tel:+375333004799">Позвонить</a></button>
+                            <a href="tel:+375333004799" onClick={(e) => {
+                                gtag("event", "click", {
+                                    event_category: "Phone Link",
+                                    event_label: "link_url",
+                                    value: 1,
+                                });
+                            }}>Позвонить</a></button>
                         <h2 className={'text-orange-500 mt-8 text-lg'}>Занимаемся полезным делом уже более <span
                             className={'bg-orange-500 text-white rounded-md p-1 font-bold'}>10 лет</span></h2>
                     </div>

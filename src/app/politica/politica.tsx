@@ -133,10 +133,9 @@ export default function Politica() {
                 href="tel:+375333004799"
                 className="text-yellow-400"
                 onClick={(e) => {
-                    // Отправка события в Google Analytics при клике на ссылку
                     gtag("event", "click", {
                         event_category: "Phone Link",
-                        event_label: "tel:+375333004799",
+                        event_label: "link_url",
                         value: 1,
                     });
                 }}
