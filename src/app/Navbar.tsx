@@ -7,7 +7,8 @@ import Image from 'next/image'
 import Link from "next/link";
 import img from '../assets/yKEFdG3JSD212a7L-mYSBQ_1-removebg-preview 1.png'
 import {IoPhonePortraitOutline} from "react-icons/io5";
-import { sendGAEvent } from '@next/third-parties/google'
+import {googleEventHandler} from "@/app/metrika/google.event";
+
 const StickyMenu = () => {
 
     const {scrollY} = useScroll()
@@ -44,7 +45,8 @@ const StickyMenu = () => {
                 </Link>
             </ul>
             <a href="tel:+375333004799"
-               className={'flex sm:hidden bg-green-500 text-4xl cursor-pointer p-2 rounded-full'} onClick={() => sendGAEvent({event: 'link_url', value: '+375333004799'})}><IoPhonePortraitOutline/></a>
+               className={'flex sm:hidden bg-green-500 text-4xl cursor-pointer p-2 rounded-full'}
+               onClick={googleEventHandler("+375333004799")}><IoPhonePortraitOutline/></a>
         </motion.div>
     );
 };
