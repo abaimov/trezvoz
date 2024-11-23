@@ -5,10 +5,14 @@ import Image from 'next/image'
 import img from '../assets/tild6530-3133-4631-b461-386232653562__568x390_usluga-trezv.jpeg'
 import img2 from '../assets/tild6264-6238-4662-b631-383332663632__91337ed135a267a61d4f.jpeg'
 import {FaBrain, FaBusinessTime, FaCompass, FaRocket, FaSmileBeam, FaThumbsUp} from "react-icons/fa";
-import {googleEventHandler} from "@/app/metrika/google.event";
 import {MouseEvent} from 'react';
+import {sendGAEvent} from "@/app/metrika/google.event";
 
 export default function Home() {
+    const handlePhoneClick = () => {
+        sendGAEvent('click_tel', 'Phone', '+375333004799');
+        window.location.href = 'tel:+375333004799'; // Переход после отправки события
+    };
     return (
         <main>
             <div className={styles.container}>
@@ -18,7 +22,10 @@ export default function Home() {
                         <div className={'text-2xl font-bold my-4 text-orange-500 p-0'}>
                             <a
                                 className={'border-b-[3px] border-b-orange-500'} href="tel:+375333004799"
-                                onClick={(e: MouseEvent<HTMLAnchorElement>) => googleEventHandler("+375333004799")}>+375
+                                onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+                                    e.preventDefault();
+                                    handlePhoneClick();
+                                }}>+375
                                 (33) 300
                                 47 99
                             </a>
@@ -26,10 +33,14 @@ export default function Home() {
                         <button
                             className={'w-full bg-green-700 max-w-[250px] py-4 rounded-md shadow-md font-bold tracking-wider'}>
                             <a href="tel:+375333004799"
-                               onClick={(e: MouseEvent<HTMLAnchorElement>) => googleEventHandler("+375333004799")}>Позвонить</a>
+                               onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+                                   e.preventDefault();
+                                   handlePhoneClick();
+                               }}>Позвонить</a>
                         </button>
-                        <h2 className={'text-orange-500 mt-8 text-lg'}>Занимаемся полезным делом уже более <span
-                            className={'bg-orange-500 text-white rounded-md p-1 font-bold'}>10 лет</span></h2>
+                        <h2 className={'text-orange-500 mt-8 text-lg'}>Занимаемся полезным делом уже
+                            более <span
+                                className={'bg-orange-500 text-white rounded-md p-1 font-bold'}>10 лет</span></h2>
                     </div>
                     <Form/>
                 </div>

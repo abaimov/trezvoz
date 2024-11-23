@@ -1,13 +1,13 @@
 // @ts-nocheck
 'use client'
 import {motion, useMotionValueEvent, useScroll,} from 'framer-motion';
-import React, {useState} from 'react';
+import React, {MouseEvent, useState} from 'react';
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from "next/link";
 import img from '../assets/yKEFdG3JSD212a7L-mYSBQ_1-removebg-preview 1.png'
 import {IoPhonePortraitOutline} from "react-icons/io5";
-import {googleEventHandler} from "@/app/metrika/google.event";
+import {sendGAEvent} from "@/app/metrika/google.event";
 
 const StickyMenu = () => {
 
@@ -21,7 +21,10 @@ const StickyMenu = () => {
             setHidden(false)
         }
     })
-
+    const handlePhoneClick = () => {
+        sendGAEvent('click_tel', 'Phone', '+375333004799');
+        window.location.href = 'tel:+375333004799'; // Переход после отправки события
+    };
 
     return (
         <motion.div
@@ -46,7 +49,10 @@ const StickyMenu = () => {
             </ul>
             <a href="tel:+375333004799"
                className={'flex sm:hidden bg-green-500 text-4xl cursor-pointer p-2 rounded-full'}
-               onClick={googleEventHandler("+375333004799")}><IoPhonePortraitOutline/></a>
+               onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+                   e.preventDefault();
+                   handlePhoneClick();
+               }}><IoPhonePortraitOutline/></a>
         </motion.div>
     );
 };

@@ -1,11 +1,14 @@
-'use client'
-import {sendGAEvent} from '@next/third-parties/google';
+// utils/gtag.ts
 
-export const googleEventHandler = (value: string): void => {
-    sendGAEvent({
-        event: 'click_tel',
-        event_label: 'Phone',
-        value: value,
+export const sendGAEvent = (event: string, category: string, label: string, value?: string) => {
+    if (typeof window === 'undefined' || !window.gtag) {
+        console.warn('Google Analytics (gtag) не инициализирован');
+        return;
+    }
+
+    window.gtag('event', event, {
+        event_category: category,
+        event_label: label,
+        value: value || undefined,
     });
-
 };
